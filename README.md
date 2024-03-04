@@ -1,6 +1,6 @@
 ZK Bootcamp
 
-1. Intro-Math
+1. Intro to Math & ZKPs
 2. FHE, Complexity, ZKP Theory
 3. ZKP systems & usecases
 4. Rust crash course
