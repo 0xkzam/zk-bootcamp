@@ -1,4 +1,4 @@
-ZK Bootcamp
+ZK Bootcamp *(WIP)*
 
 1. Intro to Math & ZKPs
 2. FHE, Complexity, ZKP Theory
