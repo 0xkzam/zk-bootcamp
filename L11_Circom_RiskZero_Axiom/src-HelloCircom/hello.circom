@@ -14,4 +14,5 @@ template Multiplier2 () {
 } 
 
 /* Instantiation of the template */
-component main {public [in1,in2]} = Multiplier2();
+// component main {public [in1,in2]} = Multiplier2();
+component main = Multiplier2();

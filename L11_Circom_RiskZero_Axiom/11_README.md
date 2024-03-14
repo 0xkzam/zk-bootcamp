@@ -1,5 +1,14 @@
 ## Circom
 
+A Circom program is a form of an arithmetic circuit which consists of 
+- A witness generation program (output computation)
+- A constraint system (the set of polynomials)
+
+Refer [here](https://docs.circom.io/circom-language/signals/) for Circom Language syntax.
+
+
+### Basic steps of writing and proving circuits
+
 #### 1. Write the circuit and save as a .circom file (e.g. hello.circom)
 
 1. All constraints must be of the form A*B + C = 0, where A, B and C are linear combinations of signals.
@@ -10,7 +19,7 @@
 
 #### 2. Compile the circom file
 
-```zsh
+```shell
 circom hello.circom --r1cs --wasm --sym --c
 ```
 
@@ -33,21 +42,21 @@ Note: I'm creating the input.json file in the src directory where hello.circom f
 
 Navigate to the hello_js dir and run the following to compute the `witness.wtns` binary file.
 
-```zsh
+```shell
+cd hello_js
+
 node generate_witness.js hello.wasm ../input.json witness.wtns
+
+cd ..
 ```
 
 #### 5. Trusted setup: phase 1
 
 This phase is independent of the circuits we've written.
 
-Start the ceremony
+Start the ceremony and make the first contribution.
 ```bash
 snarkjs powersoftau new bn128 12 pot12_0000.ptau -v
-```
-
-Make the first contribution
-```bash
 snarkjs powersoftau contribute pot12_0000.ptau pot12_0001.ptau --name="First contribution" -v
 ```
 
@@ -57,18 +66,10 @@ snarkjs powersoftau contribute pot12_0000.ptau pot12_0001.ptau --name="First con
 This phase depends on the circuits we've written.
 
 
-Start phase 2
+Start phase 2, generate a .zkey file that contains both proving and verification keys together and make the contribution.
 ```bash
 snarkjs powersoftau prepare phase2 pot12_0001.ptau pot12_final.ptau -v
-```
-
-Generate a .zkey file that contains both proving and verification keys together
-```bash
 snarkjs groth16 setup hello.r1cs pot12_final.ptau hello_0000.zkey
-```
-
-Contribute to the phase 2
-```bash
 snarkjs zkey contribute hello_0000.zkey hello_0001.zkey --name="Kz" -v
 ```
 
@@ -77,8 +78,22 @@ Export the verification key
 snarkjs zkey export verificationkey hello_0001.zkey verification_key.json
 ```
 
-#### Generating a Proof
+#### 6. Proof Generation and Verification
 
+Generating a Proof
 ```bash
 snarkjs groth16 prove hello_0001.zkey hello_js/witness.wtns proof.json public.json
+
+//Output
+[INFO]  snarkJS: EXPORT VERIFICATION KEY STARTED
+[INFO]  snarkJS: > Detected protocol: groth16
+[INFO]  snarkJS: EXPORT VERIFICATION KEY FINISHED
+```
+
+Verifying the proof
+```bash
+snarkjs groth16 verify verification_key.json public.json proof.json
+
+//Output
+[INFO]  snarkJS: OK!
 ```
