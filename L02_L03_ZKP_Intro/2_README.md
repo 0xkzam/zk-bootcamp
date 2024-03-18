@@ -26,13 +26,13 @@ Big O notation is used to describe the complexity (usually the upper bound compl
 
 #### 2.1 Argument Systems: $(P ,V)$
 - Main components and parameters
- - Prover ($P$)
- - Verifier ($V$)
- - Circuit ($C$)
- - Public input ($x$) where $x∈F$
- - Secret witness ($w$) where $w∈F$
+  - Prover ($P$)
+  - Verifier ($V$)
+  - Circuit ($C$)
+  - Public input ($x$) where $x∈F$
+  - Secret witness ($w$) where $w∈F$
 - The statement that the prover $P$ wants to prove to the verifier $V$ is represented as an arithmetic circuit $C$.
- - $C(x, w) = true/false$
+  - $C(x, w) = true/false$
 - $P$ knows $x$ and $w$.
 - $V$ knows only $x$.
 - The goal is for $P$ to convince $V$ that it knows a $w$ such that $C(x,w)=true$, without revealing $w$.
@@ -42,7 +42,7 @@ Big O notation is used to describe the complexity (usually the upper bound compl
 #### 2.2 Preprocessing Argument Systems: $(S, P, V)$
 - Additional preprocessing (aka Setup) procedure $S(C)$ is involved here.
 - The circuit $C$ is preprocessed to produce 2 public parameters $S_p$ and $S_v$
- - $S(C) \rightarrow (S_p, S_v)$
+  - $S(C) \rightarrow (S_p, S_v)$
 - $P$ takes $S_p$, $x$ and $w$: $P(S_p, x, w) \rightarrow proof \;  \pi$
 - $V$ takes $S_v$ and $x$: $V(S_v, x, \pi)\rightarrow true/false$
 - NOTE: $S_p$ and $S_v$ are also called proving key and verification key respectively.
@@ -51,20 +51,20 @@ Big O notation is used to describe the complexity (usually the upper bound compl
 #### 2.3 SNARK: A Succinct preprocessing argument system
 - Succinct means the proof  $\pi$ should be short and fast to verify.
 - i.e.
- - proof size: $O(log(|C|))$
- - verification time: $O(log(|C|))$
+  - proof size: $O(log(|C|))$
+  - verification time: $O(log(|C|))$
 
 
 #### 2.4 Types of setup:
 1. Trusted setup per circuit: $S(C,r)$
-  - In addition to the circuit $C$, the setup also takes in some random bits $r$.
-  - A new random $r$ should be generated for each circuit.
-  - $r$ should be kept secret from the prover and discarded safely after use. If the prover somehow learns about $r$, it can produce fake proofs.  
-  - NOTE: $r$ is also called **toxic waste**.
+   - In addition to the circuit $C$, the setup also takes in some random bits $r$.
+   - A new random $r$ should be generated for each circuit.
+   - $r$ should be kept secret from the prover and discarded safely after use. If the prover somehow learns about $r$, it can produce fake proofs.  
+   - NOTE: $r$ is also called **toxic waste**.
 2. Trusted but universal setup: $S(C,r)$
-  - $r$ is generated only once and discarded after the first run. Same as above, the prover should not learn about the $r$.
+   - $r$ is generated only once and discarded after the first run. Same as above, the prover should not learn about the $r$.
 3. Transparent setup: $S(C)$
-  - This type of setup does not use secret data.
+   - This type of setup does not use secret data.
 
 
 #### 2.5 Commonly used SNARK implementations
@@ -101,7 +101,7 @@ Big O notation is used to describe the complexity (usually the upper bound compl
 
 ## ZKP Systems and Usecases
 
-see [Comparison of the most popular ZKP systems](https://github.com/matter-labs/awesome-zero-knowledge-proofs#comparison-of-the-most-popular-zkp-systems)
+*see* [Comparison of the most popular ZKP systems](https://github.com/matter-labs/awesome-zero-knowledge-proofs#comparison-of-the-most-popular-zkp-systems)
 
 #### Other techniques that can be used instead of SNARKS/STARKS
 - Blind signatures
