@@ -1,6 +1,6 @@
-## ZKP intro
+# ZKP intro
 
-### 1. Complexity Theory
+## 1. Complexity Theory
 
 Complexity theory is used to analyze resourse usage such as time and space so solve a computational problem.
 
@@ -22,7 +22,7 @@ Big O notation is used to describe the complexity (usually the upper bound compl
 ||||
 
 
-### 2. ZKP Theory
+## 2. ZKP Theory
 
 #### 2.1 Argument Systems: $(P ,V)$
 - Main components and parameters
@@ -80,21 +80,21 @@ Big O notation is used to describe the complexity (usually the upper bound compl
 > watch [ZK Whiteboard Sessions - Module One: What is a SNARK? by Dan Boneh](https://youtu.be/h-94UhJLeck?si=amIpASm8MjtNjpb0)
 
 
-### 3. Zokrates
+## 3. Zokrates
 - Used to create proofs on Ethereum and verify proofs in Solidity.
 - *see* [Docs](https://zokrates.github.io/)
 
 
-### 4. Polynomials in ZKPs
+## 4. Polynomials in ZKPs
 - The circuit is represented as a polynomial.
 - The algebric properties of polynomials can be used in proving and verification computations.
 
 
-### 5. Homomorphic Encryption
+## 5. Homomorphic Encryption
 - *see* [HE](https://github.com/0xkzam/cryptography?tab=readme-ov-file#7-homomorphic-encryption)
 
 
-### 6. Homomorphic Hiding
+## 6. Homomorphic Hiding
 - *see* [Homomorphic Hidings](https://electriccoin.co/blog/snark-explain/)
 
 
