@@ -1,4 +1,4 @@
-## Circom
+# Circom
 
 A Circom program is a form of an arithmetic circuit which consists of 
 - A witness generation program (output computation)
@@ -7,7 +7,7 @@ A Circom program is a form of an arithmetic circuit which consists of
 Refer [here](https://docs.circom.io/circom-language/signals/) for Circom Language syntax.
 
 
-### Basic steps of writing and proving circuits
+## Basic steps of writing and proving circuits
 
 #### 1. Write the circuit and save as a .circom file (e.g. hello.circom)
 
