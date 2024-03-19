@@ -1,6 +1,6 @@
-## Math & Cryptography introduction
+# Math & Cryptography introduction
 
-### Math Intro
+## Math Intro
 
 - Modular Arithmetic *(see [this](https://github.com/0xkzam/cryptography?tab=readme-ov-file#contents))*
 - Group Theory
@@ -9,13 +9,13 @@
 - Roots of Unity
 - Polynomials
 
-### Cryptography Background
+## Cryptography Background
 - Hash Functions
 - Verifiable Random Functions
 - Encryption *(see [this](https://github.com/0xkzam/cryptography?tab=readme-ov-file#contents))*
 - Elliptic Curves
 
-### Proving Systems
+## Proving Systems
 
 Actors in a Proving System
 - Creator - optional, maybe combined with the prover
